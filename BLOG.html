@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruang Refleksi</title>
+    
+    <!-- Memanggil Tailwind CSS secara langsung tanpa instalasi -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Konfigurasi font agar nyaman dibaca seperti buku -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Pengaturan tipografi kustom */
+        body { font-family: 'Lora', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        
+        /* Animasi transisi halus saat ganti bahasa */
+        .fade-transition {
+            transition: opacity 0.4s ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#FDFDFC] text-slate-800 selection:bg-blue-100 pb-32 relative">
+
+    <!-- HEADER MINIMALIS -->
+    <header class="py-8 px-6 text-center">
+        <div class="flex items-center justify-center gap-2 text-slate-400">
+            <!-- SVG Icon Buku -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <span class="font-sans font-medium tracking-widest uppercase text-xs" id="site-title">
+                Ruang Refleksi
+            </span>
+        </div>
+    </header>
+
+    <!-- AREA ARTIKEL UTAMA -->
+    <main class="max-w-2xl mx-auto px-6 py-10">
+        <article class="fade-transition" id="article-container">
+            <header class="mb-12 text-center">
+                <span class="font-sans text-sm font-medium text-slate-400 block mb-4 tracking-wide">
+                    27 Februari 2026
+                </span>
+                
+                <!-- Judul (Ditukar menggunakan JS) -->
+                <h1 id="title-id" class="lang-content text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-6">
+                    Seni Mengajukan Pertanyaan "Mengapa"
+                </h1>
+                <h1 id="title-en" class="lang-content text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-6 hidden">
+                    The Art of Asking "Why"
+                </h1>
+                
+                <div class="w-16 h-1 bg-slate-200 mx-auto rounded-full"></div>
+            </header>
+
+            <!-- Konten Artikel dengan styling Prose bawaan Tailwind secara manual -->
+            <div class="text-lg sm:text-xl text-slate-700 leading-relaxed space-y-8">
+                
+                <!-- Konten Bahasa Indonesia -->
+                <div id="content-id" class="lang-content">
+                    <p>Dalam dunia yang serba cepat, kita dilatih untuk mencari jawaban instan. Namun, pemahaman sejati jarang ditemukan pada lapisan pertama sebuah masalah.</p>
+                    <p>Metode <em class="text-slate-900 font-semibold">"Five Whys"</em> (Lima Mengapa) yang dipopulerkan oleh Sakichi Toyoda adalah alat yang sederhana namun luar biasa kuat. Ketika kamu menghadapi sebuah masalah, jangan langsung mencari solusi. Tanyakan "mengapa" masalah itu terjadi. Lalu, dari jawaban tersebut, tanyakan "mengapa" lagi. Lakukan ini setidaknya lima kali.</p>
+                    <p>Proses ini seperti mengupas bawang. Mungkin membuat mata sedikit pedih karena menyadari kesalahan mendasar, tetapi pada akhirnya, kamu akan menemukan akar masalah yang sebenarnya, bukan sekadar gejalanya.</p>
+                    <p>Berhenti menerima asumsi pertama yang muncul di kepalamu. Latih otot berpikirmu untuk selalu menggali satu lapisan lebih dalam. Di sanalah kejernihan yang sesungguhnya bersembunyi.</p>
+                </div>
+
+                <!-- Konten Bahasa Inggris (Disembunyikan secara default) -->
+                <div id="content-en" class="lang-content hidden">
+                    <p>In a fast-paced world, we are trained to seek instant answers. However, true understanding is rarely found at the first layer of a problem.</p>
+                    <p>The <em class="text-slate-900 font-semibold">"Five Whys"</em> method, popularized by Sakichi Toyoda, is a simple yet incredibly powerful tool. When you face a problem, do not immediately look for a solution. Ask "why" the problem occurred. Then, from that answer, ask "why" again. Do this at least five times.</p>
+                    <p>This process is like peeling an onion. It might make your eyes sting a bit as you realize fundamental flaws, but ultimately, you will find the actual root cause, not just the symptoms.</p>
+                    <p>Stop accepting the first assumption that pops into your head. Train your thinking muscles to always dig one layer deeper. That is where true clarity hides.</p>
+                </div>
+
+            </div>
+        </article>
+    </main>
+
+    <!-- FLOATING LANGUAGE TOGGLE (KONTROL BAHASA MELAYANG) -->
+    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+        <!-- Glassmorphism effect -->
+        <div class="bg-white/70 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-slate-200/50 rounded-full p-1.5 flex items-center font-sans">
+            
+            <button id="btn-id" onclick="switchLanguage('id')" class="px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-blue-600 text-white shadow-md">
+                Indonesia
+            </button>
+            
+            <button id="btn-en" onclick="switchLanguage('en')" class="px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-slate-500 hover:text-slate-800 hover:bg-slate-100/50">
+                English
+            </button>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-100 font-sans mt-10">
+        <div class="max-w-2xl mx-auto px-6 py-8 text-center text-slate-400 text-sm">
+            <p id="footer-text">© 2026 Ruang Refleksi. Dibuat untuk melatih kejernihan berpikir.</p>
+        </div>
+    </footer>
+
+    <!-- LOGIKA JAVASCRIPT MURNI (Vanilla JS) -->
+    <script>
+        function switchLanguage(lang) {
+            // 1. Ambil semua elemen yang terpengaruh
+            const titleId = document.getElementById('title-id');
+            const titleEn = document.getElementById('title-en');
+            const contentId = document.getElementById('content-id');
+            const contentEn = document.getElementById('content-en');
+            const btnId = document.getElementById('btn-id');
+            const btnEn = document.getElementById('btn-en');
+            
+            // Elemen teks kecil
+            const siteTitle = document.getElementById('site-title');
+            const footerText = document.getElementById('footer-text');
+            const container = document.getElementById('article-container');
+
+            // Beri efek pudar transisi
+            container.style.opacity = '0';
+
+            setTimeout(() => {
+                if (lang === 'id') {
+                    // Tampilkan ID, Sembunyikan EN
+                    titleId.classList.remove('hidden');
+                    contentId.classList.remove('hidden');
+                    titleEn.classList.add('hidden');
+                    contentEn.classList.add('hidden');
+                    
+                    // Ubah gaya tombol ID menjadi aktif
+                    btnId.className = "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-blue-600 text-white shadow-md";
+                    // Ubah gaya tombol EN menjadi tidak aktif
+                    btnEn.className = "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-slate-500 hover:text-slate-800 hover:bg-slate-100/50";
+                    
+                    // Ubah teks antarmuka
+                    siteTitle.innerText = "Ruang Refleksi";
+                    footerText.innerText = "© 2026 Ruang Refleksi. Dibuat untuk melatih kejernihan berpikir.";
+                } else {
+                    // Tampilkan EN, Sembunyikan ID
+                    titleEn.classList.remove('hidden');
+                    contentEn.classList.remove('hidden');
+                    titleId.classList.add('hidden');
+                    contentId.classList.add('hidden');
+                    
+                    // Ubah gaya tombol EN menjadi aktif
+                    btnEn.className = "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-blue-600 text-white shadow-md";
+                    // Ubah gaya tombol ID menjadi tidak aktif
+                    btnId.className = "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-slate-500 hover:text-slate-800 hover:bg-slate-100/50";
+                    
+                    // Ubah teks antarmuka
+                    siteTitle.innerText = "Reflection Space";
+                    footerText.innerText = "© 2026 Reflection Space. Crafted to train clarity of thought.";
+                }
+                
+                // Kembalikan visibilitas setelah transisi
+                container.style.opacity = '1';
+            }, 200); // Tunggu 200ms sebelum mengganti teks agar transisinya terasa
+        }
+    </script>
+</body>
+</html>
