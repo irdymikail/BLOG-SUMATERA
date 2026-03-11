@@ -3,163 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruang Refleksi</title>
+    <title>Blog Sumatra - Pesona Rumah Gadang</title>
     
-    <!-- Memanggil Tailwind CSS secara langsung tanpa instalasi -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Konfigurasi font agar nyaman dibaca seperti buku -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Pengaturan tipografi kustom */
         body { font-family: 'Lora', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
+        .fade-transition { transition: opacity 0.4s ease-in-out; }
         
-        /* Animasi transisi halus saat ganti bahasa */
-        .fade-transition {
-            transition: opacity 0.4s ease-in-out;
+        /* Tambahan styling untuk gambar agar responsif */
+        .article-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
     </style>
 </head>
-<body class="min-h-screen bg-[#FDFDFC] text-slate-800 selection:bg-blue-100 pb-32 relative">
+<body class="min-h-screen bg-[#FDFDFC] text-slate-800 selection:bg-amber-100 pb-32 relative">
 
-    <!-- HEADER MINIMALIS -->
+    <!-- HEADER -->
     <header class="py-8 px-6 text-center">
-        <div class="flex items-center justify-center gap-2 text-slate-400">
-            <!-- SVG Icon Buku -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        <div class="flex items-center justify-center gap-2 text-amber-700">
+            <!-- Icon Rumah/Budaya yang lebih relevan -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
-            <span class="font-sans font-medium tracking-widest uppercase text-xs" id="site-title">
-                Ruang Refleksi
+            <span class="font-sans font-bold tracking-widest uppercase text-sm" id="site-title">
+                Blog Sumatra
             </span>
         </div>
     </header>
 
-    <!-- AREA ARTIKEL UTAMA -->
-    <main class="max-w-2xl mx-auto px-6 py-10">
+    <main class="max-w-3xl mx-auto px-6 py-10">
         <article class="fade-transition" id="article-container">
             <header class="mb-12 text-center">
-                <span class="font-sans text-sm font-medium text-slate-400 block mb-4 tracking-wide">
-                    27 Februari 2026
+                <span class="font-sans text-sm font-medium text-amber-600 block mb-4 tracking-wide uppercase">
+                    Budaya & Sejarah • 11 Maret 2026
                 </span>
                 
-                <!-- Judul (Ditukar menggunakan JS) -->
                 <h1 id="title-id" class="lang-content text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-6">
-                    Seni Mengajukan Pertanyaan "Mengapa"
+                    Sejarah dan Makna di Balik Kemegahan Rumah Gadang
                 </h1>
                 <h1 id="title-en" class="lang-content text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-6 hidden">
-                    The Art of Asking "Why"
+                    The History and Meaning Behind the Majestic Rumah Gadang
                 </h1>
                 
-                <div class="w-16 h-1 bg-slate-200 mx-auto rounded-full"></div>
+                <div class="w-16 h-1 bg-amber-500 mx-auto rounded-full"></div>
             </header>
 
-            <!-- Konten Artikel dengan styling Prose bawaan Tailwind secara manual -->
-            <div class="text-lg sm:text-xl text-slate-700 leading-relaxed space-y-8">
+            <div class="text-lg text-slate-700 leading-relaxed space-y-6">
                 
-                <!-- Konten Bahasa Indonesia -->
+                <!-- KONTEN BAHASA INDONESIA -->
                 <div id="content-id" class="lang-content">
-                    <p>Dalam dunia yang serba cepat, kita dilatih untuk mencari jawaban instan. Namun, pemahaman sejati jarang ditemukan pada lapisan pertama sebuah masalah.</p>
-                    <p>Metode <em class="text-slate-900 font-semibold">"Five Whys"</em> (Lima Mengapa) yang dipopulerkan oleh Sakichi Toyoda adalah alat yang sederhana namun luar biasa kuat. Ketika kamu menghadapi sebuah masalah, jangan langsung mencari solusi. Tanyakan "mengapa" masalah itu terjadi. Lalu, dari jawaban tersebut, tanyakan "mengapa" lagi. Lakukan ini setidaknya lima kali.</p>
-                    <p>Proses ini seperti mengupas bawang. Mungkin membuat mata sedikit pedih karena menyadari kesalahan mendasar, tetapi pada akhirnya, kamu akan menemukan akar masalah yang sebenarnya, bukan sekadar gejalanya.</p>
-                    <p>Berhenti menerima asumsi pertama yang muncul di kepalamu. Latih otot berpikirmu untuk selalu menggali satu lapisan lebih dalam. Di sanalah kejernihan yang sesungguhnya bersembunyi.</p>
+                    <p>Rumah Gadang adalah rumah adat yang berasal dari Sumatera Barat. Masyarakat sekitar menganggap bahwa rumah gadang mempunyai bentuk seperti kapal atau tanduk kerbau. Tapi, apakah Anda tahu sejarah rumah gadang di Sumatera Barat berkaitan dengan kisah perlawanan masyarakat Minangkabau dengan Majapahit?</p>
+                    
+                    <!-- Tempat (Placeholder) untuk Gambar 1 -->
+                    <div class="bg-slate-100 border-2 border-dashed border-slate-300 rounded-xl p-8 text-center my-8">
+                        <span class="text-slate-500 font-sans text-sm">[ Tempat Gambar: Rumah Gadang - Juraganmaterial (1).png ]</span>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-slate-900 mt-10 mb-4 font-sans">Kisah Cerdik Melawan Majapahit</h2>
+                    <p>Saat itu, kerajaan Majapahit tengah menduduki Minangkabau. Masyarakat setempat yang ingin mempertahankan wilayahnya pun memutuskan untuk bersiap menghadapi pasukan dalam jumlah besar.</p>
+                    <p>Namun, masyarakat Minangkabau menyadari bahwa peluang mereka untuk menang dalam kontak fisik sangat kecil. Sebagai gantinya, mereka menawarkan sebuah kesepakatan cerdik: <strong>Adu Kerbau</strong>. Jika Kerajaan Majapahit kalah dalam pertandingan adu kerbau ini, maka masyarakat Minangkabau berhak menduduki tanah Minang secara utuh. Begitu pun sebaliknya.</p>
+                    <p>Karena kecerdikannya, masyarakat Minangkabau berhasil memenangkan adu kerbau tersebut, memaksa Kerajaan Majapahit untuk meninggalkan tanah Minang. Dari sinilah awal mula atap Rumah Gadang dibuat menyerupai tanduk kerbau—sebagai simbol abadi kemenangan mereka.</p>
+
+                    <!-- Tempat (Placeholder) untuk Gambar 2 -->
+                    <div class="bg-slate-100 border-2 border-dashed border-slate-300 rounded-xl p-8 text-center my-8">
+                        <span class="text-slate-500 font-sans text-sm">[ Tempat Gambar: Rumah Gadang - Juraganmaterial (2).png ]</span>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-slate-900 mt-10 mb-4 font-sans">Fungsi-Fungsi Rumah Gadang</h2>
+                    <p>Rumah gadang bukan hanya sekadar rumah adat suku Minangkabau, tetapi juga menjadi simbol budaya, pusat kehidupan sosial, dan warisan arsitektur tradisional yang sarat makna. Berikut adalah fungsi utamanya:</p>
+
+                    <ol class="list-decimal pl-6 space-y-4 mt-6">
+                        <li>
+                            <strong class="text-slate-900">Tempat Tinggal Keluarga Besar</strong><br>
+                            Berfungsi sebagai hunian bagi keluarga besar yang berasal dari garis keturunan ibu (matrilineal). Setiap kamar biasanya ditempati oleh anak perempuan yang sudah menikah, sementara anak laki-laki yang sudah dewasa biasanya tidur di surau atau mushola.
+                        </li>
+                        <li>
+                            <strong class="text-slate-900">Pusat Musyawarah dan Keputusan Adat</strong><br>
+                            Berfungsi sebagai balai pertemuan. Di ruang tengah yang luas, para pemimpin kaum dan anggota keluarga bermusyawarah untuk mengambil keputusan penting terkait adat, pernikahan, pembagian harta pusaka, hingga penyelesaian sengketa.
+                        </li>
+                        <li>
+                            <strong class="text-slate-900">Tempat Upacara Adat</strong><br>
+                            Berbagai acara penting dilaksanakan di sini, seperti:
+                            <ul class="list-disc pl-6 mt-2 space-y-1 text-slate-600">
+                                <li>Upacara perkawinan.</li>
+                                <li>Turun mandi (ritual untuk bayi).</li>
+                                <li>Batagak penghulu (pelantikan pemimpin suku).</li>
+                                <li>Acara kematian atau doa bersama.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p class="mt-6 font-medium text-slate-800 italic">Maka, Rumah Gadang menjadi sentral kehidupan adat dan spiritual masyarakat Minang.</p>
                 </div>
 
-                <!-- Konten Bahasa Inggris (Disembunyikan secara default) -->
+                <!-- KONTEN BAHASA INGGRIS (Dibuat agar fitur toggle bahasa tetap berfungsi) -->
                 <div id="content-en" class="lang-content hidden">
-                    <p>In a fast-paced world, we are trained to seek instant answers. However, true understanding is rarely found at the first layer of a problem.</p>
-                    <p>The <em class="text-slate-900 font-semibold">"Five Whys"</em> method, popularized by Sakichi Toyoda, is a simple yet incredibly powerful tool. When you face a problem, do not immediately look for a solution. Ask "why" the problem occurred. Then, from that answer, ask "why" again. Do this at least five times.</p>
-                    <p>This process is like peeling an onion. It might make your eyes sting a bit as you realize fundamental flaws, but ultimately, you will find the actual root cause, not just the symptoms.</p>
-                    <p>Stop accepting the first assumption that pops into your head. Train your thinking muscles to always dig one layer deeper. That is where true clarity hides.</p>
+                    <p>Rumah Gadang is the traditional house originating from West Sumatra. The local community considers its shape to resemble a ship or buffalo horns. But did you know that its history is deeply tied to the story of the Minangkabau people's resistance against the Majapahit Empire?</p>
+                    
+                    <div class="bg-slate-100 border-2 border-dashed border-slate-300 rounded-xl p-8 text-center my-8">
+                        <span class="text-slate-500 font-sans text-sm">[ Image Placeholder: Rumah Gadang - Juraganmaterial (1).png ]</span>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-slate-900 mt-10 mb-4 font-sans">A Clever Strategy Against Majapahit</h2>
+                    <p>At that time, the Majapahit Empire was occupying Minangkabau. The locals, wanting to defend their territory, prepared to face a massive army. However, realizing their chances in physical combat were slim, they proposed a clever deal: a <strong>Buffalo Fight</strong>.</p>
+                    <p>If Majapahit lost, the Minangkabau people would reclaim their land. Through their ingenuity, the Minangkabau people won the match, forcing Majapahit to leave. This victory is why the roof of the Rumah Gadang is shaped like buffalo horns—as an eternal symbol of their triumph.</p>
+
+                    <div class="bg-slate-100 border-2 border-dashed border-slate-300 rounded-xl p-8 text-center my-8">
+                        <span class="text-slate-500 font-sans text-sm">[ Image Placeholder: Rumah Gadang - Juraganmaterial (2).png ]</span>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-slate-900 mt-10 mb-4 font-sans">Functions of Rumah Gadang</h2>
+                    <p>More than just a traditional house, it is a cultural symbol, a center of social life, and an architectural heritage full of meaning:</p>
+
+                    <ol class="list-decimal pl-6 space-y-4 mt-6">
+                        <li><strong class="text-slate-900">Residence for the Extended Family</strong><br>It serves as housing for the extended family based on the matrilineal line. Rooms are for married daughters, while adult sons sleep in the surau (mosque).</li>
+                        <li><strong class="text-slate-900">Center for Consensus and Customary Decisions</strong><br>It acts as a meeting hall. In the spacious central room, clan leaders and family members discuss important matters regarding customs, marriages, and inheritances.</li>
+                        <li><strong class="text-slate-900">Venue for Traditional Ceremonies</strong><br>Important events are held here, such as weddings, baby bathing rituals, clan leader inaugurations, and memorial services.</li>
+                    </ol>
                 </div>
 
             </div>
         </article>
     </main>
 
-    <!-- FLOATING LANGUAGE TOGGLE (KONTROL BAHASA MELAYANG) -->
+    <!-- FLOATING LANGUAGE TOGGLE -->
     <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
-        <!-- Glassmorphism effect -->
-        <div class="bg-white/70 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-slate-200/50 rounded-full p-1.5 flex items-center font-sans">
-            
-            <button id="btn-id" onclick="switchLanguage('id')" class="px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-blue-600 text-white shadow-md">
+        <div class="bg-white/90 backdrop-blur-md shadow-lg border border-amber-200/50 rounded-full p-1.5 flex items-center font-sans">
+            <button id="btn-id" onclick="switchLanguage('id')" class="px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-amber-600 text-white shadow-md">
                 Indonesia
             </button>
-            
             <button id="btn-en" onclick="switchLanguage('en')" class="px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-slate-500 hover:text-slate-800 hover:bg-slate-100/50">
                 English
             </button>
-
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer class="border-t border-slate-100 font-sans mt-10">
         <div class="max-w-2xl mx-auto px-6 py-8 text-center text-slate-400 text-sm">
-            <p id="footer-text">© 2026 Ruang Refleksi. Dibuat untuk melatih kejernihan berpikir.</p>
+            <p id="footer-text">© 2026 Blog Sumatra. Melestarikan warisan budaya.</p>
         </div>
     </footer>
 
-    <!-- LOGIKA JAVASCRIPT MURNI (Vanilla JS) -->
     <script>
         function switchLanguage(lang) {
-            // 1. Ambil semua elemen yang terpengaruh
             const titleId = document.getElementById('title-id');
             const titleEn = document.getElementById('title-en');
             const contentId = document.getElementById('content-id');
             const contentEn = document.getElementById('content-en');
             const btnId = document.getElementById('btn-id');
             const btnEn = document.getElementById('btn-en');
-            
-            // Elemen teks kecil
             const siteTitle = document.getElementById('site-title');
             const footerText = document.getElementById('footer-text');
             const container = document.getElementById('article-container');
 
-            // Beri efek pudar transisi
             container.style.opacity = '0';
 
             setTimeout(() => {
                 if (lang === 'id') {
-                    // Tampilkan ID, Sembunyikan EN
                     titleId.classList.remove('hidden');
                     contentId.classList.remove('hidden');
                     titleEn.classList.add('hidden');
                     contentEn.classList.add('hidden');
                     
-                    // Ubah gaya tombol ID menjadi aktif
-                    btnId.className = "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-blue-600 text-white shadow-md";
-                    // Ubah gaya tombol EN menjadi tidak aktif
+                    btnId.className = "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-amber-600 text-white shadow-md";
                     btnEn.className = "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-slate-500 hover:text-slate-800 hover:bg-slate-100/50";
                     
-                    // Ubah teks antarmuka
-                    siteTitle.innerText = "Ruang Refleksi";
-                    footerText.innerText = "© 2026 Ruang Refleksi. Dibuat untuk melatih kejernihan berpikir.";
+                    siteTitle.innerText = "Blog Sumatra";
+                    footerText.innerText = "© 2026 Blog Sumatra. Melestarikan warisan budaya.";
                 } else {
-                    // Tampilkan EN, Sembunyikan ID
                     titleEn.classList.remove('hidden');
                     contentEn.classList.remove('hidden');
                     titleId.classList.add('hidden');
                     contentId.classList.add('hidden');
                     
-                    // Ubah gaya tombol EN menjadi aktif
-                    btnEn.className = "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-blue-600 text-white shadow-md";
-                    // Ubah gaya tombol ID menjadi tidak aktif
+                    btnEn.className = "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-amber-600 text-white shadow-md";
                     btnId.className = "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 text-slate-500 hover:text-slate-800 hover:bg-slate-100/50";
                     
-                    // Ubah teks antarmuka
-                    siteTitle.innerText = "Reflection Space";
-                    footerText.innerText = "© 2026 Reflection Space. Crafted to train clarity of thought.";
+                    siteTitle.innerText = "Sumatra Blog";
+                    footerText.innerText = "© 2026 Sumatra Blog. Preserving cultural heritage.";
                 }
                 
-                // Kembalikan visibilitas setelah transisi
                 container.style.opacity = '1';
-            }, 200); // Tunggu 200ms sebelum mengganti teks agar transisinya terasa
+            }, 200); 
         }
     </script>
 </body>
